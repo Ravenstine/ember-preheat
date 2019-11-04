@@ -112,13 +112,12 @@ class PowerBoot {
       this.config.browser = await puppeteer.launch(puppeteerOptions);
     }
 
-    let instance;
     for (const promise of this._getAvailableOrNewInstance()) {
-      instance = await promise;
-      if (instance) break;
+      const isReady = await promise;
+      if (isReady) break;
     }
 
-    const result = await instance.visit(path, options);
+    const result = await this._instance.visit(path, options);
     this._releaseInstance();
 
     if (!resilient && result.error) {
@@ -238,7 +237,7 @@ class PowerBoot {
           const { address, port } = this._httpServer.address();
           await page.goto(`http://${address}:${port}`);
           this._instance = new EmberApp({ page, config: _appConfig, sandboxGlobals });
-          return this._instance;
+          return true;
         });
       }
       if (this._instance && !this.isWorking) {

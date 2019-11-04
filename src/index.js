@@ -27,7 +27,7 @@ const EmberApp  = require('./ember-app'),
  * variables by passing the `sandboxGlobals` option.
  *
  * @example
- * const PowerBoot = require('ember-powerboot');
+ * const PowerBoot = require('powerboot');
  *
  * let app = new PowerBoot({
  *   distPath: 'path/to/dist',

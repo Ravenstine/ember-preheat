@@ -1,5 +1,5 @@
 {
-  "name": "ember-powerboot",
+  "name": "powerboot",
   "version": "0.1.0",
   "description": "Library for rendering Ember apps in Node.js w/ Chromium",
   "main": "src/index.js",

@@ -1,0 +1,60 @@
+{
+  "name": "ember-powerboot",
+  "version": "0.1.0",
+  "description": "Library for rendering Ember apps in Node.js w/ Chromium",
+  "main": "src/index.js",
+  "scripts": {
+    "changelog": "lerna-changelog",
+    "lint:js": "node_modules/.bin/eslint src test",
+    "test": "npm run-script lint:js && mocha",
+    "test-only": "mocha",
+    "preversion": "npm test",
+    "postversion": "git push origin master --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravenstine/powerboot.git"
+  },
+  "engines": {
+    "node": "^8.0.0"
+  },
+  "keywords": [
+    "ember",
+    "fastboot",
+    "powerboot",
+    "ssr",
+    "rendering",
+    "server-side",
+    "SPA",
+    "chromium"
+  ],
+  "author": "Ten Bitcomb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ravenstine/powerboot/issues"
+  },
+  "homepage": "https://github.com/ravenstine/powerboot#readme",
+  "dependencies": {
+    "chalk": "^2.0.1",
+    "cookie": "^0.3.1",
+    "debug": "^4.1.0",
+    "memory-fs": "^0.4.1",
+    "puppeteer": "^1.15.0",
+    "resolve": "^1.8.1",
+    "source-map-support": "^0.5.0",
+    "webpack": "^4.30.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.0",
+    "chai-as-promised": "^7.1.1",
+    "ember-source": "3.8.0",
+    "eslint": "^5.10.0",
+    "eslint-plugin-chai-expect": "^2.0.1",
+    "eslint-plugin-mocha": "^5.2.0",
+    "eslint-plugin-node": "^8.0.0",
+    "lerna-changelog": "^0.8.2",
+    "mocha": "^5.2.0",
+    "rimraf": "^2.6.2",
+    "temp": "^0.8.3"
+  }
+}

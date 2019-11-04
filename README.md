@@ -1,5 +1,7 @@
 ⚡Ember PowerBoot⚡
 =============
+[![Build Status](https://travis-ci.org/Ravenstine/powerboot.svg?branch=master)](https://travis-ci.org/ravenstine/powerboot)
+
 
 **PowerBoot** is a drop-in replacement for [FastBoot](https://www.ember-fastboot.com) that uses Headless Chromium to provide server-side rendering for Ember.js applications in Node.js.  It's like FastBoot... but with *more power*. 💪
 

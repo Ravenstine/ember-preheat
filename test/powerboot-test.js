@@ -318,7 +318,7 @@ describe("PowerBoot", function() {
       .then(() => powerboot.visit('/'))
       .then(r => r.html())
       .then(html => expect(html).to.match(/Config foo: boo/))
-      .finally(() => deletePackage());
+      .then(() => deletePackage());
 
     function hotReloadApp() {
       powerboot.reload({

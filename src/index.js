@@ -158,11 +158,13 @@ class PowerBoot {
   async close(){
     if(!isNil(this.config.browser)) await this.config.browser.close();
     if(!isNil(this._httpServer)) await this._httpServer.close();
-    process.off('exit', this._cleanupListener);
-    process.off('SIGINT', this._exitListener);
-    process.off('SIGUSR1', this._exitListener);
-    process.off('SIGUSR2', this._exitListener);
-    process.off('uncaughtException', this._exitListener);
+    if (process && process.off) {
+      process.off('exit', this._cleanupListener);
+      process.off('SIGINT', this._exitListener);
+      process.off('SIGUSR1', this._exitListener);
+      process.off('SIGUSR2', this._exitListener);
+      process.off('uncaughtException', this._exitListener);
+    }
   }
 
   /**
@@ -231,7 +233,7 @@ class PowerBoot {
   *_getAvailableOrNewInstance() {
     const { _appConfig, config: { sandboxGlobals } } = this;
     while(true) {
-      if (!this._instance) {
+      if (!this._instance && this._httpServer) {
         yield this.config.browser.newPage().then(async page => {
           const { address, port } = this._httpServer.address();
           await page.goto(`http://${address}:${port}`);

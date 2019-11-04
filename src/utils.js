@@ -121,8 +121,6 @@ function transformManifestFiles(manifest) {
 }
 
 exports.CHROMIUM_FLAGS = [
-  // Since we're only running a single page per PowerBoot instance, there's no need for multiple processes, and this reduces the occurrence of harmless Puppeteer errors.
-  '--single-process',
   // Disable antialiasing on 2d canvas
  '--disable-canvas-aa',
   // Disable antialiasing on 2d canvas clips
@@ -143,5 +141,8 @@ exports.CHROMIUM_FLAGS = [
  '--disable-web-security',
  // see defaultViewport
  '--window-size=1280,1024',
- '--mute-audio'
+ '--mute-audio',
+ // the following are necessary for tests to work in Travis
+ '--disable-setuid-sandbox',
+ '--no-sandbox'
 ];

@@ -3,3 +3,5 @@ node_js:
   - "stable"
   - "8"
   - "10"
+dist: trusty
+sudo: required

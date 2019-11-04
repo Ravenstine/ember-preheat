@@ -126,10 +126,9 @@ class EmberApp {
         error.message.match(/Navigation failed because browser has disconnected/)
       );
       if (!isNormalError) result.error = error;
-    } finally {
-      if (destroyAppInstanceTimer) {
-        clearTimeout(destroyAppInstanceTimer);
-      }
+    }
+    if (destroyAppInstanceTimer) {
+      clearTimeout(destroyAppInstanceTimer);
     }
     return result;
   }
